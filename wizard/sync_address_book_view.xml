@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="import_address_book_wizard" model="ir.ui.view">
+        <field name="name">Sync Address Book</field>
+        <field name="model">sync.addressbook</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Sync Address Book">
+                <group> <field name="wsdl_url"/></group>
+                   
+                    <p class="oe_grey">
+                        Once draft invoices are confirmed, you will not be able
+                        to modify them. The invoices will receive a unique
+                        number and journal items will be created in your chart
+                        of accounts.
+                    </p>
+                    <footer>
+                        <button string="Sync Address Book" name="download_address_book" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+        </field>
+    </record>
+    <record id="import_address_book_wizard_action" model="ir.actions.act_window">
+        <field name="name">Sync Address Book</field>
+        <field name="res_model">sync.addressbook</field>
+        <field name="view_id" ref="import_address_book_wizard"/>
+        <field name="target">new</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem id="menu_sync_address_book" name="Sync Address Book" action="import_address_book_wizard_action" parent="id_config_address_book" sequence="100"/>
+
+</odoo>

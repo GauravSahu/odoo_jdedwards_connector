@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_address_book_form" >
+			<field name="name">address.book.form</field>
+			<field name="model">address.book</field>
+			
+			<field name="arch" type="xml">
+				<form string="Address Book">
+					<sheet>
+						<div class="oe_button_box">
+							<button name="download_address_book"  string="Phone" class="oe_stat_button" icon="fa-phone" type="object"  />
+							<button name="download_address_book"  string="Email" class="oe_stat_button" icon="fa-envelope" type="object"  />
+						</div>
+						<div class="oe_title">
+                            <label for="entityName" class="oe_edit_only"/>
+                            <h1>
+                                <field name="entityName" placeholder="Name" required="1"/>
+                            </h1>
+                            <label for="entityId" class="oe_edit_only"/>
+                            <field name="entityId" required="1" placeholder="Address Number"/>
+                        </div>
+						
+		
+						<br/><br/><br/>
+						<notebook>
+							<page name="address_book" string="Address Book">
+                                <group colspan="4" cols="4">
+                                    <group>
+                                        <!-- <field name="entityName"/> -->
+                                        <field name="entityLongId"/>
+                                        <field name="entityTaxId"/>
+                                        <field name="entityTypeCode" />
+                                        <field name="businessUnit"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="address_mailing" string="Mailing">
+                                <group colspan="4" cols="4">
+                                    <group>
+                                        <field name="mailingName"/>
+                                        <field name="addressLine1"/>
+                                        <field name="addressLine2"/>
+                                        <field name="addressLine3" />
+                                        <field name="addressLine4"/>
+                                    </group>
+                                    <group>
+                                        <field name="city"/>
+                                        <field name="stateCode"/>
+                                        <field name="postalCode"/>
+                                        <field name="countryCode" />
+                                        <field name="addressLine4"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="address_related_address" string="Related Address">
+                                <group colspan="4" cols="4"> 
+                                    <group>
+                                        <field name="entityIdParent"/>
+                                        <field name="entityIdRelated1"/>
+                                        <field name="entityIdRelated2"/>
+                                        <field name="entityIdRelated3" />
+                                        <field name="entityIdRelated4"/>
+                                    </group>
+                                    <group>
+                                        <field name="entityIdRelated5"/>
+                                        <field name="entityIdRelated6"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="address_cat_code_1" string="Category Code 1-10">
+                                <group colspan="4" cols="4">
+                                    <group>
+                                        <field name="categoryCode001"/>
+                                        <field name="categoryCode002"/>
+                                        <field name="categoryCode003"/>
+                                        <field name="categoryCode004" />
+                                        <field name="categoryCode005"/>
+                                    </group>
+                                    <group>
+                                        <field name="categoryCode006"/>
+                                        <field name="categoryCode007"/>
+                                        <field name="categoryCode008"/>
+                                        <field name="categoryCode009" />
+                                        <field name="categoryCode010"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="address_cat_code_2" string="Category Code 11-30">
+                                <group colspan="4" cols="4">
+                                    <group>
+                                        <field name="categoryCode011"/>
+                                        <field name="categoryCode012"/>
+                                        <field name="categoryCode013"/>
+                                        <field name="categoryCode014" />
+                                        <field name="categoryCode015"/>
+                                    </group>
+                                    <group>
+                                        <field name="categoryCode016"/>
+                                        <field name="categoryCode017"/>
+                                        <field name="categoryCode018"/>
+                                        <field name="categoryCode019" />
+                                        <field name="categoryCode020"/>
+                                    </group>
+                                     <group>
+                                        <field name="categoryCode021"/>
+                                        <field name="categoryCode022"/>
+                                        <field name="categoryCode023"/>
+                                        <field name="categoryCode024" />
+                                        <field name="categoryCode025"/>
+                                    </group>
+                                    <group>
+                                        <field name="categoryCode026"/>
+                                        <field name="categoryCode027"/>
+                                        <field name="categoryCode028"/>
+                                        <field name="categoryCode029" />
+                                        <field name="categoryCode030"/>
+                                    </group>
+                                </group>
+                            </page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	<record id="view_address_book_tree" model="ir.ui.view">
+		<field name="name">address.book.tree</field>
+		<field name="model">address.book</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Address Book" version="10.0">
+				<field name="entityId"/>
+				<field name="mailingName"/>
+				<field name="businessUnit"/>
+				<field name="stateCode"/>
+				<field name="countryCode"/>
+				<field name="postalCode"/>
+				<field name="city"/>
+				<field name="countyCode"/>
+				<field name="addressLine1"/>
+				<field name="addressLine2"/>
+				<field name="addressLine3"/>
+				<field name="addressLine4"/>
+			</tree>
+		</field>
+	</record>
+
+
+	<record id="open_iew_address_book_list_my" model="ir.actions.act_window">
+        <field name="name">Address Book Master</field>
+        <field name="res_model">address.book</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="view_id" eval="False"/>
+        <field name="search_view_id" ref="view_address_book_tree"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Address Book.
+          </p><p>
+            With just a quick glance on the Address Book screen, you
+            can easily find all the information you need for each person;
+            contact data, job position, availability, etc.
+          </p>
+        </field>
+    </record>
+	
+		
+		
+	
+	<menuitem id="id_root_address_book" name="AddressBook" />
+	<menuitem id="id_sub_menu_address_book" parent="id_root_address_book" name="AddressBook" />
+	<menuitem id="id_config_address_book" parent="id_root_address_book" sequence="15" name="Sync Configuration" />	
+
+    <menuitem id="id_add_address_book_new" parent="id_sub_menu_address_book"  name="Adress Book Detail" action="open_iew_address_book_list_my" />	
+	
+	
+	
+        
+     </data>
+</odoo>
