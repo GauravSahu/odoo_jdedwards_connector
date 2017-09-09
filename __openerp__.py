@@ -33,6 +33,7 @@
     'demo': [],
     'data': [
         'views/jde_address_book_view.xml',
+        'views/jde_masters_view.xml',
         'wizard/sync_address_book_view.xml'
     ],
     'test': [

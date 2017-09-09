@@ -19,3 +19,4 @@
 #
 ##############################################################################
 from . import address_book
+from . import jde_masters_sync

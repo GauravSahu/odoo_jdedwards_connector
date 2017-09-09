@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_jde_masters_form" >
+			<field name="name">jde.master.form</field>
+			<field name="model">jde.masters</field>
+			
+			<field name="arch" type="xml">
+				<form string="JD Edwards Master">
+					<sheet>
+						<div class="oe_button_box">
+							<button   string="Phone" class="oe_stat_button" icon="fa-phone" type="object"  />
+							<button   string="Email" class="oe_stat_button" icon="fa-envelope" type="object"  />
+						</div>
+						<div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Name" required="1"/>
+                            </h1>
+                        </div>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	<record id="view_jde_masters_tree" model="ir.ui.view">
+		<field name="name">jde.masters.tree</field>
+		<field name="model">jde.masters</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JD Edwards Master" version="10.0">
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+
+    <record id="open_view_jde_masters_tree" model="ir.actions.act_window">
+        <field name="name">JD Edwards Masters</field>
+        <field name="res_model">jde.masters</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="view_id" eval="False"/>
+        <field name="search_view_id" ref="view_jde_masters_tree"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new Master.
+          </p><!-- <p>
+            With just a quick glance on the Address Book screen, you
+            can easily find all the information you need for each person;
+            contact data, job position, availability, etc.
+          </p> -->
+        </field>
+    </record>
+    
+
+
+	
+		
+		
+	
+	<menuitem id="id_root_jd_edwards" name="JD Edwards" />
+	<menuitem id="id_jde_masters" parent="id_root_jd_edwards" name="JDE Masters" />
+	<menuitem id="id_jde_masters_menu" parent="id_jde_masters" sequence="15" name="JDE Masters" action="open_view_jde_masters_tree"/>	
+	
+	
+	
+        
+     </data>
+</odoo>
