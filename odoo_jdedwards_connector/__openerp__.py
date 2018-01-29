@@ -21,13 +21,16 @@
 
 {
     'name': 'JD Edwards & Odoo Connector',
-    'version': '1.0',
-    'summary': 'JDE BSSV Extension',
+    'version' : '1.0',
+    'summary': 'Address Book Master Download',
+    'sequence': 30,
     'description': """
-        BSSV JDE Extension
+    Download Jd edwards Address book using BSSV.
+The Address Book system is the foundation for other JD Edwards EnterpriseOne systems. The Address Book system contains name, address, and phone numbers for customers, suppliers, companies, and so on. This information is stored in several database tables to create a central repository of information. Other JD Edwards EnterpriseOne systems retrieve up-to-date name and address information from the Address Book system. For example, the Accounts Payable system uses address book information for supplier payments and the Accounts Receivable system uses address book information to generate customer invoices and statements.
     """,
-    'author': "Gaurav Sahu",
-    'website': "gauravsahu19@gmail.com",
+    'category': 'JD EDWARDS',
+    'author': 'Gaurav Sahu <gauravsahu19@gmail.com>',
+    'website': 'https://github.com/gauravsahu',
     'depends': ['base'],
     'sequence': 16,
     'demo': [],
